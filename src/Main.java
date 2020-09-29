@@ -1,5 +1,5 @@
-package com;
-import Model.BeginGame;
+//package com;
+import model.BeginGame;
 
 public class Main {
 	public static void main(String[] args){

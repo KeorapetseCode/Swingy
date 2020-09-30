@@ -3,6 +3,7 @@ package model;
 public class Character {
     public String name;
     public HeroType hero;
+    public Coordinates coordinates;
     public int level;
     public int xp;
     

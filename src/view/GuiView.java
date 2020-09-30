@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 //import javax.swing.JPanel;
-import javax.swing.JTextField;
+//import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class GuiView {
@@ -12,7 +12,7 @@ public class GuiView {
         JFrame mainWind = new JFrame("Swingy GUI");
         JButton saveBtn = new JButton("Save");
         JLabel welMsg = new JLabel("Welcome To Swingy", SwingConstants.CENTER);
-        JTextField inputFil = new JTextField();
+        //JTextField inputFil = new JTextField();
 
         
         mainWind.setSize(400,800);

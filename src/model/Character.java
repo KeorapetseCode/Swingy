@@ -7,12 +7,12 @@ public class Character {
     public int xp;
     
     public void createPlayer(String name, String heroStr){
-        HeroType newHero = new HeroType(heroStr);
+        HeroType temp = new HeroType(heroStr);
         
-        this.name = name;    
-        this.level = 1;
-        this.xp = 100;
-        this.hero = newHero;
+        this.name = name;
+        this.level = 0;
+        this.xp = 0;
+        this.hero = temp;
     }
 
     public String getHero(){

@@ -6,20 +6,20 @@ public class HeroType {
     public String hero_type;
     
     public HeroType(String hero){
-        if (hero.equals("Worrior")){
+        if (hero.equals("Warrior")){
             this.attack = 4;
             this.defense = 2;
-            this.hero_type = "Worrior";
+            this.hero_type = hero;
         }
         else if (hero.equals("Assassin")){
             this.attack = 3;
             this.defense = 3;
-            this.hero_type = "Assassin";
+            this.hero_type = hero;
         }
         else if (hero.equals("Brute")){
             this.attack = 5;
             this.defense = 1;
-            this.hero_type = "Brute";
+            this.hero_type = hero;
         }
     }
 }

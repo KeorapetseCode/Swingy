@@ -21,11 +21,12 @@ if test -f "$classFile"; then
 fi
 
 classFile=Main.class
-if test -f "$classFile";
-then
+if test -f "$classFile"; then
 	rm Main.class
 	echo $'[Removed Main.class in root directory]\n'
 fi
-echo $"Compiling..\n"
+
+echo $'Compiling..\n'
+
 #javac Main.java
 #java Main.java console

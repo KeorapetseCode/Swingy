@@ -7,7 +7,7 @@ then
 	echo $'[Removed all class files in model folder]'
 fi
 
-classFile=controller/MapGen.class
+classFile=controller/ConsoleMode.class
 if test -f "$classFile"; then
 	rm controller/*.class
 	echo $'[Removed all class files in controller classes folder]'
@@ -26,6 +26,6 @@ then
 	rm Main.class
 	echo $'[Removed Main.class in root directory]\n'
 fi
-
-javac Main.java
-java Main.java gui
+echo $"Compiling..\n"
+#javac Main.java
+#java Main.java console

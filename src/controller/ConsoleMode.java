@@ -28,7 +28,7 @@ public class ConsoleMode {
                 Character playerObj = new Character();
                 input = null;
                 while(true){
-                    System.out.println("What Type of Hero Is Your Player" + "\n\n" + "1. Warrior" + "\n" + "2. Assassin" + "\n" + "3. Brute");  
+                    System.out.println("What Type of Hero Is Your Nigger" + "\n\n" + "1. Warrior" + "\n" + "2. Assassin" + "\n" + "3. Brute");  
                     input = reader.readLine();
                     if (input.isEmpty() == false && (input.equals("1") || input.equals("2") || input.equals("3"))){
                         break ;

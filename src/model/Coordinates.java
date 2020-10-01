@@ -1,6 +1,6 @@
 package model;
 
 public class Coordinates {
-    int y_ax;
-    int x_ax;
+    public int y_ax;
+    public int x_ax;
 }

@@ -37,9 +37,7 @@ public class ConsoleMode {
                         }
                     }
                 }
-                
                 if (input.equals("1")){
-                    //System.out.println("Out " + input);
                     playerObj.createPlayer(playerName, "Warrior");
                 }
                 else if (input.equals("2")){

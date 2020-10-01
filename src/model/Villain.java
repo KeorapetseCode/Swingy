@@ -14,7 +14,7 @@ public class Villain{
         Villain enemies[] = new Villain[enemy_num];
         //System.out.println("enemy " + enemies.length);
         for (int i = 0; i < enemies.length; i++){
-            enemies[i].villian
+            
         }
     }
 

@@ -28,5 +28,5 @@ fi
 
 echo $'Compiling..\n'
 
-#javac Main.java
-#java Main.java console
+javac Main.java
+java Main.java console

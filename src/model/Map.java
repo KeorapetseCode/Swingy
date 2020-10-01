@@ -24,10 +24,7 @@ public class Map {
 
         temp.mapSize(player);
         temp.startingPos(player);
-        Villain.makeVillains(player);
-        //if (player.level == 0){    
-        //}
-        //System.out.println("Map Size is " + mapType);
     }
+    
     
 }

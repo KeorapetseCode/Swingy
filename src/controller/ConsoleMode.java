@@ -46,8 +46,8 @@ public class ConsoleMode {
                 else if (input.equals("3")){
                     playerObj.createPlayer(playerName, "Brute");
                 }
-                //System.out.println("Player Info Is " + playerObj.name + "\n" + "Hero Kind " + playerObj.getHero());
                 Map.newMap(playerObj);
+                //Gameplay.Iterate(playerObj);
             }/*
             else if (input.equals("2")){
                 System.out.println("Which Player Do You Want To Load");

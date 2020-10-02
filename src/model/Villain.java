@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Random;
+import java.lang.Math;
 
 public class Villain{
     public VillainType villian;
@@ -9,13 +9,13 @@ public class Villain{
     public String artifact;
     public int power;
 
-    public void makeVillain(){
-        //int enemy_num = Map.max_size / 2;
-        String[] tempA = {"Armour, Weapon, Helm"};
-        String[] tempN = {"Slime, Zombie, Ghost"};
-        Random random = new Random();
+    public Villain(){
 
-        this.name = tempN[random.nextInt(3)];
+        String[] tempA = {"Armour", "Weapon", "Helm"};
+        String[] tempN = {"Slime", "Zombie", "Ghost"};
+
+        int random = (int)(Math.random() * 3);
+        this.name = tempN[random];
         if (this.name.equals("Slime")){
             this.artifact = tempA[2];
             this.power = 500;
@@ -28,5 +28,11 @@ public class Villain{
             this.artifact = tempA[1];
             this.power = 800;
         }
+        else{
+            System.out.println("It picked None");
+        }
+    }
+    public String getName(){
+        return this.name;
     }
 }

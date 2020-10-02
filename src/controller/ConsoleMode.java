@@ -5,14 +5,14 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import model.Character;
 import model.Map;
+import controller.Gameplay;
 
 public class ConsoleMode {
     public static void startSwingy(){
         clearScreen();
 
         System.out.println("\n"+"Welcome To Swingy" + "\n\n" + "1. Create New Player" + "\n" + "2. Load Player");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); 
-         
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         // Reading data
         try {
             String input = reader.readLine();
@@ -47,7 +47,7 @@ public class ConsoleMode {
                     playerObj.createPlayer(playerName, "Brute");
                 }
                 Map.newMap(playerObj);
-                //Gameplay.Iterate(playerObj);
+                Gameplay.iterate(playerObj);
             }/*
             else if (input.equals("2")){
                 System.out.println("Which Player Do You Want To Load");

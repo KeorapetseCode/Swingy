@@ -15,9 +15,12 @@ public class Character {
         this.xp = 0;
         this.hero = temp;
     }
-
     public String getHero(){
         return this.hero.hero_type;
+    }
+    public void getPos(){
+        System.out.println("X axis " + this.coordinates.x_ax);
+        System.out.println("Y axis " + this.coordinates.y_ax + "\n");
     }
 
 }

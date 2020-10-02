@@ -26,37 +26,40 @@ public class Gameplay{
         return ret;
     }
     //  Initialise Villains cooordinates
-    public Villain[] giveCoordinates(Villain[] enemies, Character player){
+    public void giveCoordinates(Villain[] enemies, Character player){
 
         int num = Map.max_size / 2;
         int random = (int)(Math.random() * num);
-        int i = 0;
+        //int i = 0;
         int x = 0;
         int temp;
 
+//      giving x_axis
         for (int a = 0; a < enemies.length; a++){
             temp = (int)(Math.random() * random);
-            if (temp == player.coordinates.x_ax){
-
-            }
-            //enemies[a].coordinates.x_ax = (int)(Math.random() * num);
-            //enemies[a].coordinates.y_ax = (int)(Math.random() * num);
+            enemies[a].giveX(temp);
         }
-        return enemies;
+        int not_visit;
+/*
+        for (int i = 0; i < enemies.length; i++){
+            temp = (int)(Math.random() * random);
+            enemies[i].giveY(temp);
+        }*/
     }
 
     public static void iterate(Character player){
         
         Gameplay temp = new Gameplay();
         Villain enemyLst[] = temp.makeEnemies();
+        temp.giveCoordinates(enemyLst, player);
         Villain loop;
         int i = 0;
         //System.out.println("Enemy List is " + enemyLst[0].getName());
         while (i < enemyLst.length){
-            System.out.println(enemyLst[i].name);
+            System.out.println(enemyLst[i].name + " " + "X is " + enemyLst[i].coordinates.x_ax + "   Y is " + enemyLst[i].coordinates.y_ax);
             i++;
         }
-        //temp.giveCoordinates(enemyLst, player);
+        //
         System.out.println("Move Player" + "\n");
         System.out.println("(1).Up  (2).Down  (3).Left  (4).Right" + "\n");
         /*

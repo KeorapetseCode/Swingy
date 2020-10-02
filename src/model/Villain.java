@@ -32,6 +32,18 @@ public class Villain{
             System.out.println("It picked None");
         }
     }
+    public void giveX(int x){
+        Coordinates temp = new Coordinates();
+        temp.x_ax = x;
+        this.coordinates = temp;
+    }
+
+    public void giveY(int y){
+        Coordinates temp = new Coordinates();
+        temp.y_ax = y;
+        this.coordinates = temp;
+    }
+    
     public String getName(){
         return this.name;
     }

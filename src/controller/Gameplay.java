@@ -18,7 +18,6 @@ public class Gameplay{
         
         int num = Map.max_size / 2;
         Villain[] ret = new Villain[num];
-
     //  Giving name and stats values to each Villian  
         for (int a = 0; a < ret.length; a++){
             ret[a] = new Villain();
@@ -26,37 +25,34 @@ public class Gameplay{
         return ret;
     }
     //  Initialise Villains cooordinates
-    public void giveCoordinates(Villain[] enemies, Character player){
+    public void setCoordinates(Villain[] enemies){
 
         int num = Map.max_size / 2;
-        int random = (int)(Math.random() * num);
-        //int i = 0;
-        int x = 0;
-        int temp;
-
+        int temp_x;
+        int temp_y;
 //      giving x_axis
         for (int a = 0; a < enemies.length; a++){
-            temp = (int)(Math.random() * random);
-            enemies[a].giveX(temp);
+            temp_x = (int)(Math.random() * num);
+            System.out.println("temp for X " + temp_x);
+            //enemies[a].setCoords(temp_x, temp_y);
         }
-        int not_visit;
-/*
         for (int i = 0; i < enemies.length; i++){
-            temp = (int)(Math.random() * random);
-            enemies[i].giveY(temp);
-        }*/
+            temp_y = (int)(Math.random() * num);
+            
+        }
     }
 
     public static void iterate(Character player){
         
         Gameplay temp = new Gameplay();
         Villain enemyLst[] = temp.makeEnemies();
-        temp.giveCoordinates(enemyLst, player);
-        Villain loop;
+        temp.setCoordinates(enemyLst);
+        
+        //Villain loop;
         int i = 0;
         //System.out.println("Enemy List is " + enemyLst[0].getName());
         while (i < enemyLst.length){
-            System.out.println(enemyLst[i].name + " " + "X is " + enemyLst[i].coordinates.x_ax + "   Y is " + enemyLst[i].coordinates.y_ax);
+            System.out.println(enemyLst[i].name + " X is " + enemyLst[i].coordinates.x_ax + " Y is " + enemyLst[i].coordinates.y_ax);
             i++;
         }
         //

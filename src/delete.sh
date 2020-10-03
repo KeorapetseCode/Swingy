@@ -26,7 +26,7 @@ if test -f "$classFile"; then
 	echo $'[Removed Main.class in root directory]\n'
 fi
 
-#echo $'Compiling..\n'
+echo $'Compiling..\n'
 
 #javac Main.java
 #java Main.java console

@@ -2,6 +2,7 @@ package view;
 
 import controller.ConsoleMode;
 import model.Character;
+import model.Villain;
 
 public class Stats{
     
@@ -13,4 +14,12 @@ public class Stats{
         System.out.println("Player Position:");
         player.getPos();
     }
+
+    public static void villainInfo(Villain enemy)
+    {
+        System.out.println("Enemy Type: " + enemy.getName());
+        System.out.println("Enemy Strength: " + enemy.power);
+        System.out.println("Enemy Artifact: " + enemy.artifact);
+    }
+
 }

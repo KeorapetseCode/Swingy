@@ -9,6 +9,7 @@ import model.Character;
 import model.Map;
 import view.Stats;
 import model.Villain;
+//import model.Simulation;
 
 public class Gameplay{
 
@@ -88,7 +89,19 @@ public class Gameplay{
                 else{
                     System.out.println("Unrecognised Movement Command");
                 }
-                System.out.println("Something else happens");
+                //System.out.println("Something else happens");
+                for (int a = 0; a < enemyLst.length; a++){
+                    if ((enemyLst[a].x_axis == player.coordinates.x_ax) && (enemyLst[a].y_axis == player.coordinates.y_ax)){
+                        System.out.println("You Have Encountered A Villain" + "\n" + "1. Fight" + "\n" + "2. Run");
+                        if (Simulation.encounter(player, enemyLst, a) == 1){
+                            break ;
+                        }
+                        else if (Simulation.encounter(player, enemyLst, a) == 2){
+                            System.out.println("Your Character Died");
+                            System.exit(0);
+                        }
+                    }
+                }
             }
             catch(IOException err){
                 System.out.println("Error_Cannot Process Input Movement" + "\n");

@@ -19,7 +19,7 @@ public class Simulation {
         return true;
     }
     public static boolean fight(Character player, Villain[] enemies, int indx){
-        
+                
 
         return true;
     }

@@ -3,6 +3,7 @@ package model;
 public class HeroType {
     public int attack;
     public int defense;
+    public int luck; 
     public String hero_type;
     
     public HeroType(String hero){
@@ -20,6 +21,17 @@ public class HeroType {
             this.attack = 5;
             this.defense = 1;
             this.hero_type = hero;
+        }
+    }
+    public void acquirArtifact(String artifact){
+        if (artifact.equals("Armour")){
+            this.defense = this.defense + 5;
+        }
+        else if (artifact.equals("Helm")){
+            this.luck = this.luck + 1;
+        }
+        else if (artifact.equals("Weapon")){
+            this.attack = this.attack + 5;
         }
     }
 }

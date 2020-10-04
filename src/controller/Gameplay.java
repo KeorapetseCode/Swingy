@@ -92,7 +92,7 @@ public class Gameplay{
                 }
                 //System.out.println("Something else happens");
                 for (int a = 0; a < enemyLst.length; a++){
-                    if ((enemyLst[a].x_axis == player.coordinates.x_ax) && (enemyLst[a].y_axis == player.coordinates.y_ax)){
+                    if ((enemyLst[a].x_axis == player.coordinates.x_ax) && (enemyLst[a].y_axis == player.coordinates.y_ax) && enemyLst[a].power > 0){
                         ConsoleMode.clearScreen();            
                         System.out.println("You Have Encountered A Villain" + "\n" + "1. Fight" + "\n" + "2. Run" + "\n\n" + "tip:You can view your stats before fighting");
                         BufferedReader resp = new BufferedReader(new InputStreamReader(System.in));

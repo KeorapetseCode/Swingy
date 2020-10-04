@@ -18,9 +18,13 @@ public class Character {
         this.hero = temp;
     }
 
-    public void acquireArtifacts(Villain enemy){
+    public void defeatVillain(Villain enemy){
         this.artifacts.add(enemy.artifact);
+        this.hero.acquirArtifact(enemy.artifact);
         enemy.artifact = null;
+        this.xp = this.xp + enemy.power;
+        enemy.power = 0;
+        enemy.name = "None";
     }
 
     public String getHero(){

@@ -4,10 +4,11 @@ import java.lang.Math;
 
 public class Villain{
     public VillainType villian;
-    public Coordinates coordinates;
     public String name;
     public String artifact;
     public int power;
+    public int x_axis;
+    public int y_axis; 
 
     public Villain(){
 
@@ -31,11 +32,6 @@ public class Villain{
         else{
             System.out.println("It picked None");
         }
-    }
-    public void setCoords(int x, int y){
-        Coordinates temp = new Coordinates();
-        temp.x_ax = x;
-        //this.coordinates = temp;
     }
 /*
     public void giveY(int y){

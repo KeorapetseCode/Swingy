@@ -1,14 +1,13 @@
 package controller;
 
-//import java.io.BufferedReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 //import java.io.IOException;
-//import java.io.InputStreamReader;
-//import java.io.IOException;
-//import java.lang.Math;
-//import java.util.Random;
+import java.lang.Math;
 import model.Character;
 import model.Map;
-//import view.Stats;
+import view.Stats;
 import model.Villain;
 
 public class Gameplay{
@@ -18,48 +17,53 @@ public class Gameplay{
         
         int num = Map.max_size / 2;
         Villain[] ret = new Villain[num];
-    //  Giving name and stats values to each Villian  
+    //  Giving name and stats values to each Villian
         for (int a = 0; a < ret.length; a++){
             ret[a] = new Villain();
         }
         return ret;
     }
     //  Initialise Villains cooordinates
-    public void setCoordinates(Villain[] enemies){
+    public void setCoordinates(Villain[] enemies, Character player){
 
-        int num = Map.max_size / 2;
         int temp_x;
         int temp_y;
-//      giving x_axis
+
         for (int a = 0; a < enemies.length; a++){
-            temp_x = (int)(Math.random() * num);
-            System.out.println("temp for X " + temp_x);
-            //enemies[a].setCoords(temp_x, temp_y);
+            temp_x = (int)(Math.random() * Map.max_size);
+            enemies[a].x_axis = temp_x;
         }
         for (int i = 0; i < enemies.length; i++){
-            temp_y = (int)(Math.random() * num);
-            
+            temp_y = (int)(Math.random() * Map.max_size);
+            enemies[i].y_axis = temp_y;
+          
+            if ((enemies[i].x_axis == player.coordinates.x_ax) && (enemies[i].y_axis == player.coordinates.y_ax)){
+                System.out.println("Coordinates Similar To that of player");
+                while (enemies[i].x_axis == player.coordinates.x_ax){
+                    enemies[i].x_axis = (int)(Math.random() * Map.max_size);
+                }
+            }
         }
     }
 
     public static void iterate(Character player){
         
         Gameplay temp = new Gameplay();
+        Gameplay obj = new Gameplay();
         Villain enemyLst[] = temp.makeEnemies();
-        temp.setCoordinates(enemyLst);
+        temp.setCoordinates(enemyLst, player);
         
-        //Villain loop;
-        int i = 0;
-        //System.out.println("Enemy List is " + enemyLst[0].getName());
-        while (i < enemyLst.length){
-            System.out.println(enemyLst[i].name + " X is " + enemyLst[i].coordinates.x_ax + " Y is " + enemyLst[i].coordinates.y_ax);
-            i++;
-        }
-        //
         System.out.println("Move Player" + "\n");
         System.out.println("(1).Up  (2).Down  (3).Left  (4).Right" + "\n");
-        /*
+        
         while ((player.coordinates.x_ax < Map.max_size) && (player.coordinates.y_ax < Map.max_size)){
+            
+            System.out.println("Player's Coordinates " + player.coordinates.x_ax + " " + player.coordinates.y_ax);
+            int i = 0;
+            while (i < enemyLst.length){
+                System.out.println(enemyLst[i].name + " " + enemyLst[i].x_axis + " " + enemyLst[i].y_axis);
+                i++;
+            }
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try{
                 String input = reader.readLine();
@@ -90,7 +94,7 @@ public class Gameplay{
                 System.out.println("Error_Cannot Process Input Movement" + "\n");
                 err.printStackTrace();
             }      
-        }*/
+        }
     }
     private void move_left(Character player){
         player.coordinates.x_ax -= 1;

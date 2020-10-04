@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import model.Character;
 import model.Map;
-import controller.Gameplay;
+//import controller.Gameplay;
 
 public class ConsoleMode {
     public static void startSwingy(){

@@ -9,7 +9,7 @@ import model.Character;
 import model.Map;
 import view.Stats;
 import model.Villain;
-import controller.Simulation;
+//import controller.Simulation;
 
 public class Gameplay{
 
@@ -105,12 +105,19 @@ public class Gameplay{
                                     if (Simulation.fight(player, enemyLst, a) == true){
                                         fight = false;
                                     }
-                                    System.exit(0);
+                                    else{
+                                        System.out.println("Your Player Died In The Fight");
+                                        System.exit(0);
+                                    }
                                 }
                                 else if (input_2.equals("2")){
-                                    Simulation.run(player, enemyLst, a);
-                                    System.out.println("Wants to Run");
-                                    fight = false;
+                                    if (Simulation.run(player, enemyLst, a) == true){
+                                        fight = false;
+                                    }
+                                    else{
+                                        System.out.println("Your Player Died In The Fight");
+                                        System.exit(0);
+                                    }
                                 }
                                 else if (input_2.equals("info") || input_2.equals("stats")){
                                     Stats.display(player);

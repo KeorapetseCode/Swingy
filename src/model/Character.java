@@ -1,20 +1,28 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Character {
     public String name;
     public HeroType hero;
     public Coordinates coordinates;
     public int level;
     public int xp;
+    public ArrayList<String> artifacts = new ArrayList<String>();
     
     public void createPlayer(String name, String heroStr){
-        HeroType temp = new HeroType(heroStr);
-        
+        HeroType temp = new HeroType(heroStr);        
         this.name = name;
         this.level = 0;
-        this.xp = 0;
+        this.xp = 500;
         this.hero = temp;
     }
+
+    public void acquireArtifacts(Villain enemy){
+        this.artifacts.add(enemy.artifact);
+        enemy.artifact = null;
+    }
+
     public String getHero(){
         return this.hero.hero_type;
     }

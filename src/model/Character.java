@@ -19,10 +19,12 @@ public class Character {
     }
 
     public void defeatVillain(Villain enemy){
-        this.artifacts.add(enemy.artifact);
+
         this.hero.acquirArtifact(enemy.artifact);
+        this.artifacts.add(enemy.artifact);
+        
         enemy.artifact = null;
-        this.xp = this.xp + enemy.power;
+        this.xp += enemy.power;
         enemy.power = 0;
         enemy.name = "None";
     }

@@ -12,7 +12,8 @@ public class Stats{
         System.out.println("Player Stats: "+ player.name);
         System.out.println("Hero Type: " + player.getHero());
         System.out.println("Level: " + player.level + "\n" + "XP: " + player.xp);
-        System.out.println("Player Position:");
+        System.out.println("Attack: " + player.hero.attack + "\n" + "Defence: " + player.hero.defense);
+        
         if (player.artifacts.isEmpty() == false){
             Iterator <String> temp = player.artifacts.iterator();
             System.out.println("Artifacts:");
@@ -20,14 +21,16 @@ public class Stats{
                 System.out.println(temp.next());
             }
         }
-        player.getPos();
+        System.out.println("\n");
     }
 
     public static void villainInfo(Villain enemy)
     {
-        System.out.println("Enemy Type: " + enemy.getName());
-        System.out.println("Enemy Strength: " + enemy.power);
-        System.out.println("Enemy Artifact: " + enemy.artifact);
+        if (enemy.name.equals("None") == false){
+            System.out.println("Enemy Type: " + enemy.getName());
+            System.out.println("Enemy Strength: " + enemy.power);
+            System.out.println("Enemy Artifact: " + enemy.artifact + "\n");
+        }
     }
 
 }

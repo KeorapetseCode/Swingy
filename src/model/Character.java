@@ -20,10 +20,18 @@ public class Character {
 
     public void defeatVillain(Villain enemy){
 
-        this.hero.acquirArtifact(enemy.artifact);
+        //this.hero.acquirArtifact(enemy.artifact);
+        if (enemy.artifact.equals("Armour")){
+            this.hero.defense =+ 5;
+        }
+        else if (enemy.artifact.equals("Helm")){
+            this.hero.luck =+ 1;
+        }
+        else if (enemy.artifact.equals("Weapon")){
+            this.hero.attack =+ 5;
+        }
         this.artifacts.add(enemy.artifact);
-        
-        enemy.artifact = null;
+        //enemy.artifact = null;
         this.xp += enemy.power;
         enemy.power = 0;
         enemy.name = "None";

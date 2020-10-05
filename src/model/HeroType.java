@@ -27,10 +27,10 @@ public class HeroType {
         if (artifact.equals("Armour")){
             this.defense = this.defense + 5;
         }
-        else if (artifact.equals("Helm")){
+        if (artifact.equals("Helm")){
             this.luck = this.luck + 1;
         }
-        else if (artifact.equals("Weapon")){
+        if (artifact.equals("Weapon")){
             this.attack = this.attack + 5;
         }
     }

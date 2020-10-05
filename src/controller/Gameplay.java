@@ -9,7 +9,7 @@ import model.Character;
 import model.Map;
 import view.Stats;
 import model.Villain;
-import controller.LevelUp;
+//import controller.LevelUp;
 
 public class Gameplay{
 
@@ -18,7 +18,6 @@ public class Gameplay{
         
         int num = Map.max_size / 2;
         Villain[] ret = new Villain[num];
-    //  Giving name and stats values to each Villian
         for (int a = 0; a < ret.length; a++){
             ret[a] = new Villain();
         }
@@ -59,7 +58,7 @@ public class Gameplay{
         
         while ((player.coordinates.x_ax < Map.max_size) && (player.coordinates.y_ax < Map.max_size)){
             
-            System.out.println("Player's Coordinates " + player.coordinates.x_ax + " " + player.coordinates.y_ax);
+            System.out.println("Player's Coordinates " + player.coordinates.y_ax + " " + player.coordinates.x_ax);
             int i = 0;
             while (i < enemyLst.length){
                 System.out.println(enemyLst[i].name + " " + enemyLst[i].x_axis + " " + enemyLst[i].y_axis);
@@ -102,7 +101,7 @@ public class Gameplay{
                             while (fight){
                                 String input_2 = resp.readLine();
                                 if (input_2.equals("1")){
-                                    System.out.println("Wants to fight");
+                                    System.out.println("\n");
                                     if (Simulation.fight(player, enemyLst[a]) == true){
                                         fight = false;
                                     }

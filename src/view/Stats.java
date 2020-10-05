@@ -1,6 +1,6 @@
 package view;
 
-import controller.ConsoleMode;
+//import controller.ConsoleMode;
 import model.Character;
 import model.Villain;
 import java.util.Iterator;
@@ -8,7 +8,7 @@ import java.util.Iterator;
 public class Stats{
     
     public static void display(Character player){
-        ConsoleMode.clearScreen();
+        //ConsoleMode.clearScreen();
         System.out.println("Player Stats: "+ player.name);
         System.out.println("Hero Type: " + player.getHero());
         System.out.println("Level: " + player.level + "\n" + "XP: " + player.xp);

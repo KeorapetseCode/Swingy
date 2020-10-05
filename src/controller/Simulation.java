@@ -21,12 +21,15 @@ public class Simulation {
     }
     public static boolean fight(Character player, Villain enemies){
         if (player.hero.luck > 0){
+            player.hero.luck -= 1;
             player.defeatVillain(enemies);
         }
         if (player.hero.attack > 5){
+            player.hero.attack -= 5;
             player.defeatVillain(enemies);
         }
         if (player.hero.defense > 5){
+            player.hero.defense -= 5;
             player.defeatVillain(enemies);
         }
         else{

@@ -1,1 +1,6 @@
-Kg wrote Something
+Player Name: Milano
+Hero Type: Warrior
+Level: 0
+XP: 500
+Attack: 4
+Defence: 2

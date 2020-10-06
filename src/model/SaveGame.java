@@ -1,5 +1,6 @@
 package model;
 
+import controller.Gameplay;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
@@ -53,8 +54,30 @@ public class SaveGame {
                 System.out.println("Cannot Load Player");
             }
             else{
+                String temp_1 = null;
+                String temp_2 = null;
+                if (line.contains(name)){
+                    int indx = line.indexOf(": ");
+                    temp_1 = line.substring(indx+2);
+                    //System.out.println("Temp 1 =" + temp_1);
+                    indx = 0;
+                    
+                    line = reader.readLine();
+                    indx = line.indexOf(": ");
+                    temp_2 = line.substring(indx+2);
+                    
+                    Character player = new Character();
+                    System.out.println("Temp 2 " + temp_2 + "\n");
+                    player.createPlayer(temp_1, temp_2);
+                    System.out.println("Player Hero " + player.getHero() + "\n");
+                    Map.newMap(player);
+                    Gameplay.iterate(player);
                 
-
+                
+                }
+                else {
+                    System.out.println("Could Not Find User");
+                }
             }
             reader.close();
         }

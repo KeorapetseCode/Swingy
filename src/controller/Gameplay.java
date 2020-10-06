@@ -170,10 +170,6 @@ public class Gameplay{
 
 
 
-
-
-
-
     private void move_left(Character player){
         player.coordinates.x_ax += 1;
     }

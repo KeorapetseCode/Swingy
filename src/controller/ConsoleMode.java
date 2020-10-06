@@ -50,10 +50,18 @@ public class ConsoleMode {
                 Map.newMap(playerObj);
                 SaveGame.createSaveFile(playerObj);
                 Gameplay.iterate(playerObj);
-            }/*
+            }
             else if (input.equals("2")){
-                System.out.println("Which Player Do You Want To Load");
-            }*/
+                while (true){
+                    System.out.println("Give Player Name" + "\n"); 
+                    input = null;
+                    input = reader.readLine();
+                    if (input.isEmpty() == false){
+                        break ;
+                    }
+                }
+                SaveGame.loadPlayer(input);
+            }
             else if (input.equals("exit")){
             }
         }

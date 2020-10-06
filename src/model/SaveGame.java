@@ -1,7 +1,5 @@
 package model;
 
-//import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
@@ -25,6 +23,8 @@ public class SaveGame {
         }
     }
     public static void saveProgress(Character player){
+
+        /*
         try{
             BufferedReader reader = new BufferedReader(new FileReader("swingy.txt"));
             String line = reader.readLine();
@@ -42,10 +42,25 @@ public class SaveGame {
             err.getMessage();
             //err.printStackTrace();
         }
+        */
     }
 
-    public static void loadPlayer(Character player){
-        
+    public static void loadPlayer(String name){
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader("swingy.txt"));
+            String line = reader.readLine();
+            if (line == null){
+                System.out.println("Cannot Load Player");
+            }
+            else{
+                
+
+            }
+            reader.close();
+        }
+        catch(IOException err){
+            System.out.println("Could Not Load!!!");
+        }        
     }
     
 }

@@ -22,13 +22,16 @@ public class Character {
 
         //this.hero.acquirArtifact(enemy.artifact);
         if (enemy.artifact.equals("Armour")){
-            this.hero.defense =+ 5;
+            this.hero.defense += 5;
+            this.xp += 500;
         }
         else if (enemy.artifact.equals("Helm")){
-            this.hero.luck =+ 1;
+            this.hero.luck += 1;
+            this.xp += 500;
         }
         else if (enemy.artifact.equals("Weapon")){
-            this.hero.attack =+ 5;
+            this.hero.attack += 5;
+            this.xp += 500;
         }
         this.artifacts.add(enemy.artifact);
         //enemy.artifact = null;

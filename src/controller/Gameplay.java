@@ -86,34 +86,34 @@ public class Gameplay{
                     System.out.println("Unrecognised Movement Command");
                 }
                 if (player.coordinates.x_ax < 0 || player.coordinates.y_ax < 0){
-                    //obj.reachBorder(player);
+                    //System.out.println("MIN!!!!!!!!");
                     player.xp += 1000;
-                    if (LevelUp.level_up(player) == true){
-                        Map.newMap(player);
-                        enemyLst = temp.makeEnemies();
-                        temp.setCoordinates(enemyLst, player);
-                    }
+                    Map.newMap(player);
+                    enemyLst = temp.makeEnemies();
+                    temp.setCoordinates(enemyLst, player);
                 }
                 else if (player.coordinates.x_ax >= Map.max_size || player.coordinates.y_ax >= Map.max_size){
-                    //obj.reachBorder(player);
+                    //System.out.println("MAX!!!!!!!!");
                     player.xp += 1000;
-                    if (LevelUp.level_up(player) == true){
-                        Map.newMap(player);
-                        enemyLst = temp.makeEnemies();
-                        temp.setCoordinates(enemyLst, player);
-                    }
+                    Map.newMap(player);
+                    enemyLst = temp.makeEnemies();
+                    temp.setCoordinates(enemyLst, player);
                 }
-
                 for (int a = 0; a < enemyLst.length; a++){
                     if ((enemyLst[a].x_axis == player.coordinates.x_ax) && (enemyLst[a].y_axis == player.coordinates.y_ax) && (enemyLst[a].power > 0)){
                         obj.gamefunc(player, enemyLst[a]);
-                    
+                    /*
                         if (LevelUp.level_up(player) == true){
                             Map.newMap(player);
                             enemyLst = temp.makeEnemies();
                             temp.setCoordinates(enemyLst, player);
-                        }
+                        }*/
                     }
+                }
+                if (LevelUp.level_up(player) == true){
+                    Map.newMap(player);
+                    enemyLst = temp.makeEnemies();
+                    temp.setCoordinates(enemyLst, player);
                 }
             }
             catch(IOException err){
@@ -121,17 +121,6 @@ public class Gameplay{
                 err.printStackTrace();
             }      
         }
-    }
-
-    public void reachBorder(Character player){
-/*        Gameplay temp = new Gameplay();
-        Gameplay obj = new Gameplay();
-        Map.newMap(player);
-        Villain enemyLst[] = temp.makeEnemies();
-        temp.setCoordinates(enemyLst, player);
-*/
-        player.xp =+ 1000;
-        
     }
 
     public void gamefunc(Character player, Villain enemy){

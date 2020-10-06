@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.lang.Math;
 import model.Character;
 import model.Map;
+import model.SaveGame;
 import view.Stats;
 import model.Villain;
 //import controller.LevelUp;
@@ -86,34 +87,29 @@ public class Gameplay{
                     System.out.println("Unrecognised Movement Command");
                 }
                 if (player.coordinates.x_ax < 0 || player.coordinates.y_ax < 0){
-                    //System.out.println("MIN!!!!!!!!");
                     player.xp += 1000;
                     Map.newMap(player);
                     enemyLst = temp.makeEnemies();
                     temp.setCoordinates(enemyLst, player);
+                    SaveGame.saveProgress(player);
                 }
                 else if (player.coordinates.x_ax >= Map.max_size || player.coordinates.y_ax >= Map.max_size){
-                    //System.out.println("MAX!!!!!!!!");
                     player.xp += 1000;
                     Map.newMap(player);
                     enemyLst = temp.makeEnemies();
                     temp.setCoordinates(enemyLst, player);
+                    SaveGame.saveProgress(player);
                 }
                 for (int a = 0; a < enemyLst.length; a++){
                     if ((enemyLst[a].x_axis == player.coordinates.x_ax) && (enemyLst[a].y_axis == player.coordinates.y_ax) && (enemyLst[a].power > 0)){
                         obj.gamefunc(player, enemyLst[a]);
-                    /*
-                        if (LevelUp.level_up(player) == true){
-                            Map.newMap(player);
-                            enemyLst = temp.makeEnemies();
-                            temp.setCoordinates(enemyLst, player);
-                        }*/
                     }
                 }
                 if (LevelUp.level_up(player) == true){
                     Map.newMap(player);
                     enemyLst = temp.makeEnemies();
                     temp.setCoordinates(enemyLst, player);
+                    SaveGame.saveProgress(player);
                 }
             }
             catch(IOException err){
@@ -136,6 +132,7 @@ public class Gameplay{
                 if (input_2.equals("1")){
                     System.out.println("\n");
                     if (Simulation.fight(player, enemy) == true){
+                        SaveGame.saveProgress(player);
                         fight = false;
                     }
                     else{
@@ -145,6 +142,7 @@ public class Gameplay{
                 }
                 else if (input_2.equals("2")){
                     if (Simulation.run(player, enemy) == true){
+                        SaveGame.saveProgress(player);
                         fight = false;
                     }
                     else{

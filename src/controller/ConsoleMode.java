@@ -6,6 +6,7 @@ import java.io.IOException;
 import model.Character;
 import model.Map;
 //import controller.Gameplay;
+import model.SaveGame;
 
 public class ConsoleMode {
     public static void startSwingy(){
@@ -47,6 +48,7 @@ public class ConsoleMode {
                     playerObj.createPlayer(playerName, "Brute");
                 }
                 Map.newMap(playerObj);
+                SaveGame.createSaveFile(playerObj);
                 Gameplay.iterate(playerObj);
             }/*
             else if (input.equals("2")){

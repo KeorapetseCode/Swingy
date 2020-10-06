@@ -38,7 +38,7 @@ public class Gameplay{
             enemies[i].y_axis = temp_y;
     
             if ((enemies[i].x_axis == player.coordinates.x_ax) && (enemies[i].y_axis == player.coordinates.y_ax)){
-                System.out.println("Coordinates Similar To that of player");
+                //System.out.println("Coordinates Similar To that of player");
                 while (enemies[i].x_axis == player.coordinates.x_ax){
                     enemies[i].x_axis = (int)(Math.random() * Map.max_size);
                 }
@@ -57,12 +57,9 @@ public class Gameplay{
         System.out.println("(1).Up  (2).Down  (3).Left  (4).Right" + "\n");
         
         while ((player.coordinates.x_ax < Map.max_size) && (player.coordinates.y_ax < Map.max_size)){
-            
             System.out.println("Player's Coordinates " + player.coordinates.y_ax + " " + player.coordinates.x_ax);
-            int i = 0;
-            while (i < enemyLst.length){
+            for (int i = 0; i < enemyLst.length; i++){
                 System.out.println(enemyLst[i].name + " " + enemyLst[i].y_axis + " " + enemyLst[i].x_axis + "\n");
-                i++;
             }
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try{
@@ -88,15 +85,34 @@ public class Gameplay{
                 else{
                     System.out.println("Unrecognised Movement Command");
                 }
-                for (int a = 0; a < enemyLst.length; a++){
-                    if ((enemyLst[a].x_axis == player.coordinates.x_ax) && (enemyLst[a].y_axis == player.coordinates.y_ax) && (enemyLst[a].power > 0)){
-                        obj.gamefunc(player, enemyLst[a]);
-                    
+                if (player.coordinates.x_ax < 0 || player.coordinates.y_ax < 0){
+                    //obj.reachBorder(player);
+                    player.xp += 1000;
                     if (LevelUp.level_up(player) == true){
                         Map.newMap(player);
                         enemyLst = temp.makeEnemies();
                         temp.setCoordinates(enemyLst, player);
                     }
+                }
+                else if (player.coordinates.x_ax >= Map.max_size || player.coordinates.y_ax >= Map.max_size){
+                    //obj.reachBorder(player);
+                    player.xp += 1000;
+                    if (LevelUp.level_up(player) == true){
+                        Map.newMap(player);
+                        enemyLst = temp.makeEnemies();
+                        temp.setCoordinates(enemyLst, player);
+                    }
+                }
+
+                for (int a = 0; a < enemyLst.length; a++){
+                    if ((enemyLst[a].x_axis == player.coordinates.x_ax) && (enemyLst[a].y_axis == player.coordinates.y_ax) && (enemyLst[a].power > 0)){
+                        obj.gamefunc(player, enemyLst[a]);
+                    
+                        if (LevelUp.level_up(player) == true){
+                            Map.newMap(player);
+                            enemyLst = temp.makeEnemies();
+                            temp.setCoordinates(enemyLst, player);
+                        }
                     }
                 }
             }
@@ -107,8 +123,19 @@ public class Gameplay{
         }
     }
 
-    public void gamefunc(Character player, Villain enemy){
+    public void reachBorder(Character player){
+/*        Gameplay temp = new Gameplay();
+        Gameplay obj = new Gameplay();
+        Map.newMap(player);
+        Villain enemyLst[] = temp.makeEnemies();
+        temp.setCoordinates(enemyLst, player);
+*/
+        player.xp =+ 1000;
         
+    }
+
+    public void gamefunc(Character player, Villain enemy){
+
         ConsoleMode.clearScreen();            
         System.out.println("You Have Encountered A Villain" + "\n" + "1. Fight" + "\n" + "2. Run" + "\n\n" + "tip:You can view your stats before fighting");
         System.out.println("Villain Type: "+ enemy.name + "\n");

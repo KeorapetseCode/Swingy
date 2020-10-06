@@ -36,7 +36,7 @@ public class Gameplay{
         for (int i = 0; i < enemies.length; i++){
             temp_y = (int)(Math.random() * Map.max_size);
             enemies[i].y_axis = temp_y;
-          
+    
             if ((enemies[i].x_axis == player.coordinates.x_ax) && (enemies[i].y_axis == player.coordinates.y_ax)){
                 System.out.println("Coordinates Similar To that of player");
                 while (enemies[i].x_axis == player.coordinates.x_ax){
@@ -61,10 +61,9 @@ public class Gameplay{
             System.out.println("Player's Coordinates " + player.coordinates.y_ax + " " + player.coordinates.x_ax);
             int i = 0;
             while (i < enemyLst.length){
-                System.out.println(enemyLst[i].name + " " + enemyLst[i].x_axis + " " + enemyLst[i].y_axis);
+                System.out.println(enemyLst[i].name + " " + enemyLst[i].y_axis + " " + enemyLst[i].x_axis + "\n");
                 i++;
             }
-            System.out.println("\n");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try{
                 String input = reader.readLine();
@@ -89,57 +88,15 @@ public class Gameplay{
                 else{
                     System.out.println("Unrecognised Movement Command");
                 }
-                //System.out.println("Something else happens");
                 for (int a = 0; a < enemyLst.length; a++){
-                    if ((enemyLst[a].x_axis == player.coordinates.x_ax) && (enemyLst[a].y_axis == player.coordinates.y_ax) && enemyLst[a].power > 0){
-                        ConsoleMode.clearScreen();            
-                        System.out.println("You Have Encountered A Villain" + "\n" + "1. Fight" + "\n" + "2. Run" + "\n\n" + "tip:You can view your stats before fighting");
-                        System.out.println("Villain Type: "+ enemyLst[a].name + "\n");
-                        BufferedReader resp = new BufferedReader(new InputStreamReader(System.in));
-                        try{
-                            boolean fight = true;
-                            while (fight){
-                                String input_2 = resp.readLine();
-                                if (input_2.equals("1")){
-                                    System.out.println("\n");
-                                    if (Simulation.fight(player, enemyLst[a]) == true){
-                                        fight = false;
-                                    }
-                                    else{
-                                        System.out.println("Your Player Died In The Fight");
-                                        System.exit(0);
-                                    }
-                                }
-                                else if (input_2.equals("2")){
-                                    if (Simulation.run(player, enemyLst, a) == true){
-                                        fight = false;
-                                    }
-                                    else{
-                                        System.out.println("Your Player Died In The Fight");
-                                        System.exit(0);
-                                    }
-                                }
-                                else if (input_2.equals("info") || input_2.equals("stats")){
-                                    Stats.display(player);
-                                    Stats.villainInfo(enemyLst[a]);
-                                    System.out.println("1. Fight" + "\n" + "2. Run");
-                                }
-                                else if (input_2.equals("exit")){
-                                    System.exit(1);
-                                }
-                                else{
-                                    System.out.println("Unrecognised Response To Fight");
-                                }
-                            }
-                        }
-                        catch(IOException err){
-                            System.out.println("Error At Response");
-                        }
-                        if (LevelUp.level_up(player) == true){
-                            Map.newMap(player);
-                            enemyLst = temp.makeEnemies();
-                            temp.setCoordinates(enemyLst, player);
-                        }
+                    if ((enemyLst[a].x_axis == player.coordinates.x_ax) && (enemyLst[a].y_axis == player.coordinates.y_ax) && (enemyLst[a].power > 0)){
+                        obj.gamefunc(player, enemyLst[a]);
+                    
+                    if (LevelUp.level_up(player) == true){
+                        Map.newMap(player);
+                        enemyLst = temp.makeEnemies();
+                        temp.setCoordinates(enemyLst, player);
+                    }
                     }
                 }
             }
@@ -149,15 +106,72 @@ public class Gameplay{
             }      
         }
     }
+
+    public void gamefunc(Character player, Villain enemy){
+        
+        ConsoleMode.clearScreen();            
+        System.out.println("You Have Encountered A Villain" + "\n" + "1. Fight" + "\n" + "2. Run" + "\n\n" + "tip:You can view your stats before fighting");
+        System.out.println("Villain Type: "+ enemy.name + "\n");
+        BufferedReader resp = new BufferedReader(new InputStreamReader(System.in));
+        try{
+            boolean fight = true;
+            while (fight){
+                String input_2 = resp.readLine();
+                if (input_2.equals("1")){
+                    System.out.println("\n");
+                    if (Simulation.fight(player, enemy) == true){
+                        fight = false;
+                    }
+                    else{
+                        System.out.println("Your Player Died In The Fight");
+                        System.exit(0);
+                    }
+                }
+                else if (input_2.equals("2")){
+                    if (Simulation.run(player, enemy) == true){
+                        fight = false;
+                    }
+                    else{
+                        System.out.println("Your Player Died In The Fight");
+                        System.exit(0);
+                    }
+                }
+                else if (input_2.equals("info") || input_2.equals("stats")){
+                    Stats.display(player);
+                    Stats.villainInfo(enemy);
+                    System.out.println("1. Fight" + "\n" + "2. Run");
+                }
+                else if (input_2.equals("exit")){
+                    System.exit(1);
+                }
+                else{
+                    System.out.println("Unrecognised Response To Fight");
+                }
+            }
+        }
+        catch(IOException err){
+            System.out.println("Error At Response");
+        }
+    }
+
+
+
+
+
+
+
     private void move_left(Character player){
         player.coordinates.x_ax += 1;
     }
+
     private void move_right(Character player){
         player.coordinates.x_ax -= 1;
     }
+
     private void move_up(Character player){
         player.coordinates.y_ax += 1;
     }
+
     private void move_down(Character player){
         player.coordinates.y_ax -= 1;
     }

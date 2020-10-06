@@ -6,14 +6,14 @@ import java.lang.Math;
 
 public class Simulation {
     
-    public static boolean run(Character player, Villain[] enemies, int indx){
+    public static boolean run(Character player, Villain enemy){
         int temp = (int)(Math.random() * 2);
         if (temp == 1){
             System.out.println("You Have Fled Successful");
         }
         else if (temp == 0){
             System.out.println("Could Not Run Away!");
-            if (Simulation.fight(player, enemies[indx]) == false){
+            if (Simulation.fight(player, enemy) == false){
                 return false;
             }
         }
@@ -24,11 +24,11 @@ public class Simulation {
             player.hero.luck -= 1;
             player.defeatVillain(enemies);
         }
-        if (player.hero.attack > 5){
+        else if (player.hero.attack > 5){
             player.hero.attack -= 5;
             player.defeatVillain(enemies);
         }
-        if (player.hero.defense > 5){
+        else if (player.hero.defense > 5){
             player.hero.defense -= 5;
             player.defeatVillain(enemies);
         }

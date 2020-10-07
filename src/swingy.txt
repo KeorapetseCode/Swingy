@@ -1,6 +1,6 @@
-Player Name: Milano
+Player Name: Mlazi Milano
 Hero Type: Warrior
-Level: 0
-XP: 500
+Level: 2
+XP: 2500
 Attack: 4
 Defence: 2

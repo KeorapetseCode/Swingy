@@ -1,5 +1,6 @@
 package model;
-
+import java.util.ArrayList;
+import java.util.Iterator;
 import controller.Gameplay;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,14 +18,13 @@ public class SaveGame {
             saveFile.write("Defence: " + player.hero.defense + "\n");
             //saveFile.write("Luck Artifacts: " + player.hero.luck + "\n");
             saveFile.close();
-            
         }
         catch(IOException err){
             System.out.println("Could Not Create Save File");
         }
     }
     public static void saveProgress(Character player){
-
+        createSaveFile(player);
         /*
         try{
             BufferedReader reader = new BufferedReader(new FileReader("swingy.txt"));
@@ -45,7 +45,6 @@ public class SaveGame {
         }
         */
     }
-
     public static void loadPlayer(String name){
         try{
             BufferedReader reader = new BufferedReader(new FileReader("swingy.txt"));
@@ -55,25 +54,20 @@ public class SaveGame {
             }
             else{
                 String temp_1 = null;
-                String temp_2 = null;
+                ArrayList<String> temp_2 = new ArrayList<String>();
                 if (line.contains(name)){
-                    int indx = line.indexOf(": ");
-                    temp_1 = line.substring(indx+2);
-                    //System.out.println("Temp 1 =" + temp_1);
-                    indx = 0;
-                    
-                    line = reader.readLine();
-                    indx = line.indexOf(": ");
-                    temp_2 = line.substring(indx+2);
-                    
-                    Character player = new Character();
-                    System.out.println("Temp 2 " + temp_2 + "\n");
-                    player.createPlayer(temp_1, temp_2);
-                    System.out.println("Player Hero " + player.getHero() + "\n");
-                    Map.newMap(player);
-                    Gameplay.iterate(player);
-                
-                
+                    while (line != null){
+                        int indx = line.indexOf(": ");
+                        //temp_1 = line.substring(indx+2);    
+                        temp_2.add(line.substring(indx+2));
+                        line = reader.readLine();
+                    }
+                    Iterator<String> iter = temp_2.iterator();
+                    int w = 1;
+                    while (iter.hasNext()){
+                        System.out.println("Line " + w + " " + iter.next());
+                        w++;
+                    }
                 }
                 else {
                     System.out.println("Could Not Find User");

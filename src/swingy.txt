@@ -1,6 +1,0 @@
-Player Name: SchoolBoy
-Hero Type: Brute
-Level: 2
-XP: 2500
-Attack: 5
-Defence: 1

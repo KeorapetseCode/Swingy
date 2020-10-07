@@ -1,4 +1,5 @@
 package model;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import controller.Gameplay;
@@ -25,25 +26,6 @@ public class SaveGame {
     }
     public static void saveProgress(Character player){
         createSaveFile(player);
-        /*
-        try{
-            BufferedReader reader = new BufferedReader(new FileReader("swingy.txt"));
-            String line = reader.readLine();
-            
-            while (line != null){
-
-                line = reader.readLine();
-            }
-            FileWriter editor = new FileWriter("swingy.txt");
-            editor.close();
-            reader.close();
-        }
-        catch (IOException err){
-            System.out.println("Swingy Was NEVER Found!!!");
-            err.getMessage();
-            //err.printStackTrace();
-        }
-        */
     }
     public static void loadPlayer(String name){
         try{
@@ -53,21 +35,30 @@ public class SaveGame {
                 System.out.println("Cannot Load Player");
             }
             else{
-                String temp_1 = null;
                 ArrayList<String> temp_2 = new ArrayList<String>();
                 if (line.contains(name)){
                     while (line != null){
                         int indx = line.indexOf(": ");
-                        //temp_1 = line.substring(indx+2);    
                         temp_2.add(line.substring(indx+2));
                         line = reader.readLine();
                     }
                     Iterator<String> iter = temp_2.iterator();
-                    int w = 1;
-                    while (iter.hasNext()){
-                        System.out.println("Line " + w + " " + iter.next());
-                        w++;
-                    }
+                    String temp_1 = iter.next();
+                    Character player = new Character();
+                    player.createPlayer(temp_1, iter.next());
+                    temp_1 = iter.next();
+                    player.level = Integer.parseInt(temp_1);
+
+                    temp_1 = iter.next();
+                    player.xp = Integer.parseInt(temp_1);
+
+                    temp_1 = iter.next();
+                    player.hero.attack = Integer.parseInt(temp_1);
+
+                    temp_1 = iter.next();
+                    player.hero.defense = Integer.parseInt(temp_1);
+                    Map.newMap(player);
+                    Gameplay.iterate(player);
                 }
                 else {
                     System.out.println("Could Not Find User");
@@ -77,7 +68,6 @@ public class SaveGame {
         }
         catch(IOException err){
             System.out.println("Could Not Load!!!");
-        }        
-    }
-    
+        }
+    }    
 }

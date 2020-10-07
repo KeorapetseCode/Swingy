@@ -1,6 +1,6 @@
-Player Name: Mlazi Milano
-Hero Type: Warrior
+Player Name: SchoolBoy
+Hero Type: Brute
 Level: 2
 XP: 2500
-Attack: 4
-Defence: 2
+Attack: 5
+Defence: 1

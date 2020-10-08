@@ -1,12 +1,13 @@
 package controller;
+//package javax.validation
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import model.Character;
 import model.Map;
-//import controller.Gameplay;
 import model.SaveGame;
+import javax.validation.constraints.*;
 
 public class ConsoleMode {
     public static void startSwingy(){
@@ -18,6 +19,7 @@ public class ConsoleMode {
         try {
             Boolean loop = true;
             while (loop){
+                @NotBlank(message = "Name is required.")
                 String input = reader.readLine();
                 if (input.equals("1")){
                     while (true){

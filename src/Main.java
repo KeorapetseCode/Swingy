@@ -1,4 +1,4 @@
-//package com;
+package com;
 import model.BeginGame;
 import controller.ConsoleMode;
 

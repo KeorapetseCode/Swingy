@@ -56,12 +56,12 @@ public class Gameplay{
         System.out.println("(1).Up  (2).Down  (3).Left  (4).Right" + "\n");
         
         while ((player.coordinates.x_ax < Map.max_size) && (player.coordinates.y_ax < Map.max_size)){
-            /*
+            
             System.out.println("Player's Coordinates " + player.coordinates.y_ax + " " + player.coordinates.x_ax);
             for (int i = 0; i < enemyLst.length; i++){
                 System.out.println(enemyLst[i].name + " " + enemyLst[i].y_axis + " " + enemyLst[i].x_axis + "\n");
             }
-            */
+            
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try{
                 String input = reader.readLine();

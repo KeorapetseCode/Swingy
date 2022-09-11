@@ -20,5 +20,6 @@
 # How To Run <br />
 - $mvn clean package <br />
 - $java -jar target/my-executable-jar <br />
+<br />
 # Prerequisites
   This is a command line program. javac, maven and java7 is to be installed prior.

@@ -16,7 +16,6 @@
   - South <br />
   - East <br />
   - West <br />
-<br />
 # How To Run <br />
 - $mvn clean package <br />
 - $java -jar target/my-executable-jar <br />

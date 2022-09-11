@@ -1,14 +1,14 @@
-package controller;
+package com.mycompany.app.controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.Math;
-import model.Character;
-import model.Map;
-import model.SaveGame;
-import view.Stats;
-import model.Villain;
+import com.mycompany.app.model.Character;
+import com.mycompany.app.model.Map;
+import com.mycompany.app.model.SaveGame;
+import com.mycompany.app.view.Stats;
+import com.mycompany.app.model.Villain;
 
 public class Gameplay{
 

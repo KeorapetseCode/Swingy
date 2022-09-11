@@ -1,12 +1,14 @@
-package controller;
-//package javax.validation
+package com.mycompany.app.controller;
+//package javax.validation;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
-import model.Character;
-import model.Map;
-import model.SaveGame;
+import com.mycompany.app.model.Character;
+import com.mycompany.app.model.Map;
+import com.mycompany.app.model.SaveGame;
+//import javax.validation.constraints.*;
+//import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.*;
 
 public class ConsoleMode {

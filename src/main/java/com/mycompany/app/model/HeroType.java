@@ -1,4 +1,4 @@
-package model;
+package com.mycompany.app.model;
 
 public class HeroType {
     public int attack;

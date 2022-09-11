@@ -1,8 +1,8 @@
-package view;
+package com.mycompany.app.view;
 
 //import controller.ConsoleMode;
-import model.Character;
-import model.Villain;
+import com.mycompany.app.model.Character;
+import com.mycompany.app.model.Villain;
 import java.util.Iterator;
 
 public class Stats{

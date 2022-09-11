@@ -1,4 +1,4 @@
-package model;
+package com.mycompany.app.model;
 
 public class Map {
     public static int max_size;

@@ -1,6 +1,6 @@
-package com;
-import model.BeginGame;
-import controller.ConsoleMode;
+package com.mycompany.app;
+import com.mycompany.app.model.BeginGame;
+import com.mycompany.app.controller.ConsoleMode;
 
 public class Main {
 	public static void main(String[] args){

@@ -1,7 +1,7 @@
-package controller;
+package com.mycompany.app.controller;
 
-import model.Character;
-import model.Villain;
+import com.mycompany.app.model.Character;
+import com.mycompany.app.model.Villain;
 import java.lang.Math;
 
 public class Simulation {

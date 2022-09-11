@@ -1,4 +1,4 @@
-package model;
+package com.mycompany.app.model;
 
 import java.lang.Math;
 

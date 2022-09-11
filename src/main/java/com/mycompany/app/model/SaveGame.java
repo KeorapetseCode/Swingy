@@ -1,8 +1,8 @@
-package model;
+package com.mycompany.app.model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import controller.Gameplay;
+import com.mycompany.app.controller.Gameplay;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;

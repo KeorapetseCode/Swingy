@@ -1,4 +1,4 @@
-package model;
+package com.mycompany.app.model;
 
 public class Coordinates {
     public int y_ax;
